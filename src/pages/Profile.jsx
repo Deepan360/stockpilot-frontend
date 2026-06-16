@@ -13,7 +13,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-
+import toast from "react-hot-toast";
 // Iconography Additions (With Cleaned-Up, Failure-Proof Import Paths)
 import PersonIcon from "@mui/icons-material/Person";
 import MailIcon from "@mui/icons-material/Mail"; 
