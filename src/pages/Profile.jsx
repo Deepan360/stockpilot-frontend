@@ -62,11 +62,14 @@ function Profile() {
   const inventoryValue = products.reduce((sum, p) => sum + Number(p.price || 0) * Number(p.quantity || 0), 0);
   const lowStockItems = products.filter((p) => Number(p.quantity) <= Number(p.reorder_level || 10)).length;
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    navigate("/");
-  };
+const handleLogout = () => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+
+  toast.success("Logged out successfully");
+
+  navigate("/");
+};
 
   return (
     <Box sx={{ display: "flex", backgroundColor: "#F8FAFC", height: "100vh", overflow: "hidden" }}>

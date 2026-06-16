@@ -8,7 +8,7 @@ import Alerts from "./pages/Alerts";
 import Analytics from "./pages/Analytics";
 import Profile from "./pages/Profile";
 import { Toaster } from "react-hot-toast";
-
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -21,13 +21,49 @@ function App() {
       />
       <Routes> 
         <Route path="/" element={<Login />} />
+                <Route path="/register" element={<Register />} />
 
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/register" element={<Register />} />
-<Route path="/alerts" element={<Alerts />} />
-<Route path="/analytics" element={<Analytics />} />
-<Route path="/profile" element={<Profile />} />
+
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/products"
+          element={
+            <ProtectedRoute>
+              <Products />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/alerts"
+          element={
+            <ProtectedRoute>
+              <Alerts />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/analytics"
+          element={
+            <ProtectedRoute>
+              <Analytics />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
