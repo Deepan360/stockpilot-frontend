@@ -1,0 +1,40 @@
+/* --- StockPilot Global Scrollable Dashboard Layout Fix --- */
+
+/* 1. Ensure the root document can manage height dynamically */
+html, body, #root {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #F8FAFC;
+  /* Prevent horizontal jarring while handling vertical scrolling */
+  overflow-x: hidden; 
+}
+
+/* 2. Target the main content wrappers inside your layout views */
+main, 
+.MuiBox-root[component="main"] {
+  height: 100vh !important;
+  /* Crucial: Allows content to overflow and scroll vertically independently */
+  overflow-y: auto !important; 
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS devices */
+}
+
+/* 3. Style the scrollbars to match the premium, clean look of StockPilot */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1; /* Soft gray color matching tailwind palette colors */
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8; /* Darker slate shade on cursor hover focus */
+}
