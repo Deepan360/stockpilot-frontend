@@ -8,7 +8,7 @@ import Alerts from "./pages/Alerts";
 import Analytics from "./pages/Analytics";
 import Profile from "./pages/Profile";
 import { Toaster } from "react-hot-toast";
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 function App() {
   return (

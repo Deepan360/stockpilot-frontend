@@ -7,9 +7,9 @@ function ProtectedRoute({ children }) {
 
   useEffect(() => {
     if (!token) {
-      toast.error(
-        "Session expired. Please login again."
-      );
+      toast.error("Session expired. Please login again.", {
+        id: "session-expired-toast",
+      });
     }
   }, [token]);
 
